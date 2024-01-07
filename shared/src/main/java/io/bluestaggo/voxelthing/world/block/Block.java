@@ -1,3 +1,6 @@
+//this is the file that dictates how the blocks work
+//there are no properties special to certain blocks yet but Wool is the only block with some sort of metadata.
+
 package io.bluestaggo.voxelthing.world.block;
 
 import io.bluestaggo.voxelthing.Identifier;
@@ -40,7 +43,9 @@ public class Block {
 			"brown",
 			"white"
 	};
-
+//this chunk of code is what the name and textures of the blocks are
+//the texture atlas goes like this 0,0 1,0
+//                                 0,1 1,1
 	public static final Identifier ID_AIR = new Identifier("air");
 	public static final Block STONE = new Block("stone").withTex(1, 0);
 	public static final Block GRASS = new Block("grass").withTex(new GrassTexture(0, 1, 0, 0, 0, 2));
@@ -55,10 +60,11 @@ public class Block {
 	public static final Block GRAVEL = new Block("gravel").withTex(2, 1);
 	public static final Block STONE_BRICKS = new Block("stone_bricks").withTex(2, 2);
 	public static final Block POLISHED_STONE = new Block("polished_stone").withTex(1, 2);
+	// wool This looks complex I will try to prod at this
 	public static final Block[] WOOL = IntStream.range(0, WOOL_NAMES.length)
 			.mapToObj(i -> new Block("wool_" + WOOL_NAMES[i]).withTex(i % 4, i / 4 + 3))
 			.toArray(Block[]::new);
-
+// don't touch this shit I don't know what it does and for all we know it would make the game explode
 	public final Identifier id;
 	protected BlockTexture texture;
 	protected BlockTransparency transparency = BlockTransparency.NONE;
